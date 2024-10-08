@@ -11,13 +11,27 @@ void setup () {               // <-- runs once
 
 void draw () {                // <-- runs continuously (speed set by frameRate variable)
 
-  background(250);            // -- clear the background with a lightish grey
-  fill(235);                  // -- set the fill colour to something a little darker for the rectangle
-  rect(20,20,60,60);          // -- draw a rectangle in the centre of the canvas  
+  noLoop();
+  int[] counts = new int[53];
+  float rF = random(0,52);
+  int rI = ceil(rF);
+  for (long i = 0; i < 1000000000L; ++i) {
+    rF = random(0,52);
+    rI = ceil(rF);
+    ++counts[rI];
+  }
+  println("Counts:");
+  for (int i = 0; i < counts.length; ++i) {
+    println(i + ": " + counts[i]);
+  }
+  
+  //background(250);            // -- clear the background with a lightish grey
+  //fill(235);                  // -- set the fill colour to something a little darker for the rectangle
+  //rect(20,20,60,60);          // -- draw a rectangle in the centre of the canvas  
 
-  float rF = random(0,52);    // -- create a float between 0 and 52 and store this in rF
-  int   rI = ceil(rF);        // -- create an integer from rF and store this in rI
+  //float rF = random(0,52);    // -- create a float between 0 and 52 and store this in rF
+  //int   rI = ceil(rF);        // -- create an integer from rF and store this in rI
 
-  fill(96);                   // -- set the fill colour to something darkish for text
-  text(rI,50,50);             // -- add some text at 50,50 containing the value of 'rF'
+  //fill(96);                   // -- set the fill colour to something darkish for text
+  //text(rI,50,50);             // -- add some text at 50,50 containing the value of 'rF'
 }
